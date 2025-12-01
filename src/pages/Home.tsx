@@ -29,7 +29,11 @@ const subjects = [
     icon: <FlaskConical size={32} className="text-emerald-600" />,
     color: 'bg-emerald-50 border-emerald-200 hover:border-emerald-400',
     description: '包含：化學計量、物理加速度...',
-    link: '/science/chemistry-mole' // 這裡連到我們做好的化學
+    // 這裡我們用一個小技巧，讓它可以連到兩個地方，
+    // 或者目前先改成連到物理 (之後我們可以做一個自然科學的子選單頁面)
+    // 為了簡單起見，我建議你先把 Home.tsx 的這個連結改成物理
+    // 或者你可以多加一個卡片是專門給物理的
+    link: '/science'
   },
   {
     id: 'others',
