@@ -76,8 +76,8 @@ const TextMath = ({ text }: any) => {
           if (content.includes('_') || content.includes('^') || content.length === 1 || content.match(/^[a-zA-Z]+$/)) {
              return (
                <span key={index} className="mx-1 text-indigo-700 font-medium">
-                  {content.replace(/([a-zA-Z])_(\d+|[a-z])/g, (m, v, s) => `<M>${v}<sub>${s}</sub></M>`)
-                          .replace(/([a-zA-Z])\^(\d+)/g, (m, v, s) => `<M>${v}<sup>${s}</sup></M>`)
+                  {content.replace(/([a-zA-Z])_(\d+|[a-z])/g, (_, v, s) => `<M>${v}<sub>${s}</sub></M>`)
+                          .replace(/([a-zA-Z])\^(\d+)/g, (_, v, s) => `<M>${v}<sup>${s}</sup></M>`)
                           .split(/<M>(.*?)<\/M>/g).map((seg, i) => {
                              if (seg.includes('<sub>')) {
                                const [_, v, s] = seg.match(/(.*?)<sub>(.*?)<\/sub>/) || [];
@@ -297,8 +297,9 @@ const SimulationSection = () => {
   const [t, setT] = useState(0); 
   const [isRunning, setIsRunning] = useState(false);
   
-  const requestRef = useRef<number>();
-  const previousTimeRef = useRef<number>();
+  // 修正這裡：明確宣告可以是 number 或 undefined
+  const requestRef = useRef<number | undefined>(undefined);
+  const previousTimeRef = useRef<number | undefined>(undefined);
 
   const currentPos = (v0 * t) + (0.5 * a * t * t);
   const currentVel = v0 + (a * t);
