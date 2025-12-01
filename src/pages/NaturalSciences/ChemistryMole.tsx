@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BookOpen, Calculator, ChevronRight, CheckCircle, XCircle, RefreshCw, FlaskConical, Atom, ArrowRight, Home } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 

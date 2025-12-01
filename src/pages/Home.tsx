@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Languages, Globe, Book, FlaskConical, LayoutGrid, ArrowRight } from 'lucide-react';
 
